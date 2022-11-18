@@ -47,22 +47,6 @@ margin_right = 110.0
 margin_bottom = -309.0
 text = "button thing lol"
 
-[node name="Control" type="ColorRect" parent="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 87.0
-margin_top = 63.0
-margin_right = -763.0
-margin_bottom = -455.0
-mouse_filter = 1
-color = Color( 0.643137, 0.772549, 0.176471, 0.4 )
-
-[node name="test" type="ColorRect" parent="Control"]
-margin_right = 25.0
-margin_bottom = 25.0
-mouse_filter = 2
-color = Color( 1, 0, 0, 1 )
-
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Control"]
 margin_left = 461.0
 margin_top = 265.0
@@ -77,5 +61,17 @@ margin_bottom = 341.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
+
+[node name="Control" type="ColorRect" parent="Control"]
+margin_right = 281.0
+margin_bottom = 181.0
+mouse_filter = 1
+color = Color( 0.643137, 0.772549, 0.176471, 0.4 )
+
+[node name="test" type="ColorRect" parent="Control"]
+margin_right = 25.0
+margin_bottom = 25.0
+mouse_filter = 2
+color = Color( 1, 0, 0, 1 )
 
 [connection signal="gui_input" from="Control/Control" to="Control" method="_on_Control_gui_input"]

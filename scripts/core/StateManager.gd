@@ -49,7 +49,10 @@ func change_state(id: int) -> void:
 
 
 func _ready() -> void:
-	var state: State = get_tree().current_scene as State
+	var current_scene: Node = get_tree().current_scene 
+	print("Current scene: " + str(current_scene))
+
+	var state: State = current_scene as State
 	if state:
 		_current_state = state
 	else:

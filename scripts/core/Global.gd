@@ -1,15 +1,12 @@
 extends Node
 
 var main_viewport: Viewport
-var overlay_viewport: Viewport
-
-var _black_bg: ColorRect
 
 var _viewports: CanvasLayer
 
+var _black_bg: ColorRect
 var _aspect_ratio_container: AspectRatioContainer
 var _main_vc: ViewportContainer
-var _overlay_vc: ViewportContainer
 
 var _root: Viewport
 
@@ -23,8 +20,13 @@ func get_project_version_string() -> String:
 
 
 func _ready() -> void:
+	print(get_framework_version_string() + "\n")
+
+	_setup_viewport()
+
+
+func _setup_viewport() -> void:
 	_root = get_tree().root
-	#_root.connect("size_changed", self, "_on_size_changed")
 
 	_viewports = CanvasLayer.new()
 	_viewports.name = "Viewports"
@@ -46,12 +48,6 @@ func _ready() -> void:
 	_main_vc.stretch = true
 	_main_vc.viewport_size = _root.size
 	_aspect_ratio_container.call_deferred("add_child", _main_vc)
-	#_main_vc.set_anchors_preset(Control.PRESET_WIDE, true)
-
-	#_overlay_vc = ViewportContainer.new()
-	#_overlay_vc.name = "OverlayViewportContainer"
-	#_aspect_ratio_container.call_deferred("add_child", _overlay_vc)
-	#_overlay_vc.set_anchors_preset(Control.PRESET_WIDE, true)
 
 	main_viewport = Viewport.new()
 	main_viewport.name = "MainViewport"
@@ -60,21 +56,7 @@ func _ready() -> void:
 	main_viewport.size_override_stretch = true
 	_main_vc.call_deferred("add_child", main_viewport)
 
-	# overlay_viewport = Viewport.new()
-	# overlay_viewport.name = "OverlayViewport"
-	# overlay_viewport.size = _root.size
-	# overlay_viewport.transparent_bg = true
-	# _overlay_vc.call_deferred("add_child", overlay_viewport)
-
 	var current_scene: Node = get_tree().current_scene
-	print(current_scene)
 	get_tree().set_deferred("current_scene", _viewports)
 	_root.call_deferred("remove_child", current_scene)
 	main_viewport.call_deferred("add_child", current_scene)
-
-
-func _on_size_changed() -> void:
-	main_viewport.size = _root.size
-	print(_root.size.x / _root.size.y)
-
-	pass
