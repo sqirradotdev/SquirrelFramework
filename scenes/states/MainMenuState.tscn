@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/states/MainMenuState.gd" type="Script" id=1]
 [ext_resource path="res://scenes/states/Control.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://scenes/states/Weird.gd" type="Script" id=4]
 
 [node name="MainMenuState" type="Node"]
 script = ExtResource( 1 )
@@ -47,20 +48,15 @@ margin_right = 110.0
 margin_bottom = -309.0
 text = "button thing lol"
 
-[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="Control"]
-margin_left = 461.0
+[node name="Weird" type="TextureRect" parent="Control"]
+margin_left = 523.0
 margin_top = 265.0
-margin_right = 1192.0
-margin_bottom = 606.0
-ratio = 1.7778
-
-[node name="TextureRect" type="TextureRect" parent="Control/AspectRatioContainer2"]
-margin_left = 62.3851
-margin_right = 668.615
-margin_bottom = 341.0
+margin_right = 917.0
+margin_bottom = 535.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
+script = ExtResource( 4 )
 
 [node name="Control" type="ColorRect" parent="Control"]
 margin_right = 281.0
