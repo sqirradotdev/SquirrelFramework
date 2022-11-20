@@ -15,9 +15,9 @@ func _on_done_loading(path: String) -> void:
         var res: StreamTexture = ResourceQueue.get_resource(path)
         for i in 10:
             var sprite: Sprite = Sprite.new()
-            sprite.position = Vector2(rand_range(0, 1280), rand_range(0, 720))
+            sprite.position = Vector2(rand_range(800, 1280 - 800), rand_range(200, 720 - 200))
             sprite.texture = res
             sprite.scale = Vector2(0.2, 0.2)
             add_child(sprite)
 
-            yield(get_tree().create_timer(0.05), "timeout")
+            yield(get_tree().create_timer(0.02), "timeout")

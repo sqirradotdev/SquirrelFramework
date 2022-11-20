@@ -44,15 +44,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="SquirrelFramework"
+config/name="Sample Project"
 run/main_scene="res://scenes/states/EntryState.tscn"
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
-config/framework_version="0.1"
-config/project_version="0.1"
+config/version="1.0"
 
 [autoload]
 

@@ -1,5 +1,7 @@
 extends Node
 
+const FRAMEWORK_VERSION: String = "0.1"
+
 var main_viewport: Viewport
 
 var _viewports: CanvasLayer
@@ -12,16 +14,16 @@ var _root: Viewport
 
 
 func get_framework_version_string() -> String:
-	return "SquirrelFramework v" + ProjectSettings.get("application/config/framework_version")
+	return "SquirrelFramework v" + FRAMEWORK_VERSION
 
 
 func get_project_version_string() -> String:
-	return ProjectSettings.get("application/config/name") + " v" + ProjectSettings.get("application/config/project_version")
+	return ProjectSettings.get("application/config/name") + " v" + ProjectSettings.get("application/config/version")
 
 
 func _ready() -> void:
-	print(get_framework_version_string() + "\n")
-
+	print(get_framework_version_string())
+	print(get_project_version_string() + "\n")
 	_setup_viewport()
 
 

@@ -38,7 +38,7 @@ func _ready() -> void:
 	_root = get_tree().root
 	_root.connect("size_changed", self, "_on_size_changed")
 
-	debug_overlay.version_label.text = Global.get_framework_version_string()
+	debug_overlay.version_label.text = Global.get_framework_version_string() + "\n" + Global.get_project_version_string()
 
 	if OS.is_debug_build():
 		overlay_level = 2

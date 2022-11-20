@@ -49,10 +49,10 @@ margin_bottom = -309.0
 text = "button thing lol"
 
 [node name="Weird" type="TextureRect" parent="UI"]
-margin_left = 565.0
-margin_top = 200.0
-margin_right = 770.0
-margin_bottom = 538.0
+margin_left = 969.0
+margin_top = 61.0
+margin_right = 1174.0
+margin_bottom = 399.0
 rect_pivot_offset = Vector2( 102, 169 )
 texture = ExtResource( 3 )
 expand = true
