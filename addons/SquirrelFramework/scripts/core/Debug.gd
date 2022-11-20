@@ -1,10 +1,12 @@
 extends Node
 
-var overlay_level: int = 2
+var overlay_level: int = 0
 var debug_overlay: DebugOverlay
 
 var _debug_properties: Dictionary = {}
 var _root: Viewport
+
+var _vram_peak: int = 0
 
 
 func toggle_debug_overlay() -> void:
@@ -13,19 +15,7 @@ func toggle_debug_overlay() -> void:
 	else:
 		overlay_level += 1
 
-	match overlay_level:
-		0:
-			debug_overlay.visible = false
-		1:
-			debug_overlay.visible = true
-			debug_overlay.stats_label.visible = true
-			debug_overlay.properties_label.visible = false
-			debug_overlay.version_label.visible = true
-		2:
-			debug_overlay.visible = true
-			debug_overlay.stats_label.visible = true
-			debug_overlay.properties_label.visible = true
-			debug_overlay.version_label.visible = true
+	_set_debug_overlay()
 
 
 func add_debug_property(key: String, object: Object, prop: String, label: String) -> void:
@@ -50,6 +40,10 @@ func _ready() -> void:
 
 	debug_overlay.version_label.text = Global.get_framework_version_string()
 
+	if OS.is_debug_build():
+		overlay_level = 2
+	_set_debug_overlay()
+
 	_on_size_changed()
 
 
@@ -62,7 +56,15 @@ func _process(delta: float) -> void:
 		var mem: int = OS.get_static_memory_usage()
 		var mem_peak: int = OS.get_static_memory_peak_usage()
 
-		debug_overlay.stats_label.text = debug_overlay.stats_template % [str(fps), String.humanize_size(mem), String.humanize_size(mem_peak)]
+		var vram: int = VisualServer.get_render_info(VisualServer.INFO_VIDEO_MEM_USED)
+		if vram > _vram_peak:
+			_vram_peak = vram
+
+		debug_overlay.stats_label.text = debug_overlay.stats_template % [ \
+			str(fps), \
+			String.humanize_size(mem), String.humanize_size(mem_peak), \
+			String.humanize_size(vram), String.humanize_size(_vram_peak) \
+		]
 
 		_update_debug_properties()
 
@@ -82,6 +84,22 @@ func _update_debug_properties() -> void:
 			debug_overlay.properties_label.text += dict["label"] + ": " + ("null" if prop == null else str(prop))
 		else:
 			remove_debug_property(key)
+
+
+func _set_debug_overlay() -> void:
+	match overlay_level:
+		0:
+			debug_overlay.visible = false
+		1:
+			debug_overlay.visible = true
+			debug_overlay.stats_label.visible = true
+			debug_overlay.properties_label.visible = false
+			debug_overlay.version_label.visible = true
+		2:
+			debug_overlay.visible = true
+			debug_overlay.stats_label.visible = true
+			debug_overlay.properties_label.visible = true
+			debug_overlay.version_label.visible = true
 
 
 func _on_size_changed() -> void:

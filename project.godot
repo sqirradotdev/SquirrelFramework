@@ -46,8 +46,10 @@ _global_script_class_icons={
 
 config/name="SquirrelFramework"
 run/main_scene="res://scenes/states/EntryState.tscn"
+boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
 config/framework_version="0.1"
 config/project_version="0.1"
@@ -55,6 +57,7 @@ config/project_version="0.1"
 [autoload]
 
 Global="*res://addons/SquirrelFramework/scripts/core/Global.gd"
+ResourceQueue="*res://addons/SquirrelFramework/scripts/core/ResourceQueue.gd"
 StateManager="*res://addons/SquirrelFramework/scripts/core/StateManager.gd"
 Util="*res://addons/SquirrelFramework/scripts/core/Util.gd"
 Debug="*res://addons/SquirrelFramework/scripts/core/Debug.gd"

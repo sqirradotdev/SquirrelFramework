@@ -5,6 +5,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
+extra_spacing_top = -4
+extra_spacing_bottom = -2
 font_data = ExtResource( 2 )
 
 [node name="DebugOverlay" type="CanvasLayer"]
@@ -20,7 +22,8 @@ custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
 custom_fonts/font = SubResource( 1 )
 text = "%s FPS
-%s / %s"
+MEM %s / %s
+VRAM %s / %s"
 
 [node name="ResolutionLabel" type="Label" parent="."]
 unique_name_in_owner = true
