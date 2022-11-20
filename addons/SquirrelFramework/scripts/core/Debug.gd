@@ -1,13 +1,9 @@
 extends Node
 
-const DEBUG_OVERLAY_SCENE = preload("res://scenes/ui/DebugOverlay.tscn")
-
 var overlay_level: int = 2
-
 var debug_overlay: DebugOverlay
 
 var _debug_properties: Dictionary = {}
-
 var _root: Viewport
 
 
@@ -45,7 +41,7 @@ func remove_debug_property(key: String) -> void:
 
 
 func _ready() -> void:
-	var node: Node = DEBUG_OVERLAY_SCENE.instance()
+	var node: Node = ResourceLoader.load(Util.get_res_path("scenes/ui/DebugOverlay.tscn")).instance()
 	add_child(node)
 	debug_overlay = node as DebugOverlay
 

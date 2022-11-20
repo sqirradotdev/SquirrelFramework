@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "CanvasLayer",
 "class": "DebugOverlay",
 "language": "GDScript",
-"path": "res://scripts/ui/DebugOverlay.gd"
+"path": "res://addons/SquirrelFramework/scripts/ui/DebugOverlay.gd"
 }, {
 "base": "State",
 "class": "EntryState",
@@ -27,12 +27,12 @@ _global_script_classes=[ {
 "base": "ViewportContainer",
 "class": "MainViewportContainer",
 "language": "GDScript",
-"path": "res://scripts/ui/MainViewportContainer.gd"
+"path": "res://addons/SquirrelFramework/scripts/core/MainViewportContainer.gd"
 }, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://scripts/core/State.gd"
+"path": "res://addons/SquirrelFramework/scripts/core/State.gd"
 } ]
 _global_script_class_icons={
 "DebugOverlay": "",
@@ -54,9 +54,10 @@ config/project_version="0.1"
 
 [autoload]
 
-Global="*res://scripts/core/Global.gd"
-StateManager="*res://scripts/core/StateManager.gd"
-Debug="*res://scripts/core/Debug.gd"
+Global="*res://addons/SquirrelFramework/scripts/core/Global.gd"
+StateManager="*res://addons/SquirrelFramework/scripts/core/StateManager.gd"
+Util="*res://addons/SquirrelFramework/scripts/core/Util.gd"
+Debug="*res://addons/SquirrelFramework/scripts/core/Debug.gd"
 
 [debug]
 
@@ -71,7 +72,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/SquirrelFramework/plugin.cfg" )
 
 [input]
 
