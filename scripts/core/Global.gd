@@ -4,7 +4,7 @@ var version: String = "0.1"
 
 
 func get_framework_version_string() -> String:
-	return "SquirrelFramework v%s by Gede Hari" % version
+	return "SquirrelFramework v%s by gedehari" % version
 
 
 func get_project_version_string() -> String:
