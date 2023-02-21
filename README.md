@@ -1,14 +1,14 @@
 # SquirrelFramework
 
-SquirrelFramework is a base framework used for developing Godot Engine games. Think of it as a foundation, a set of tools and systems to quickly start your new game project.
+SquirrelFramework is a foundation for developing Godot Engine games. It's a set of tools and systems to quickstart your new game project. 🚀
 
 # Features
 
-- A special type of scenes called "States" for game state management.
-- ResourceQueue and Util helper singletons
-- Dedicated debug canvas separate from game viewport
+- Game state management with a special State scene type
+- Helper singletons (ResourceQueue, Util, etc)
+- Dedicated debug canvas separate from the game viewport
 
-...and more to come!
+...and more to come! Roadmap coming soon.
 
 # Getting Started
 
@@ -37,7 +37,7 @@ If you are using git in your project, add this repo as a submodule.
 git submodule add https://github.com/gedehari/SquirrelFramework addons/SquirrelFramework
 ```
 
-However, if you are not using git, you can always download or clone this repo and copying it inside the `addons` folder in your project.
+However, if you are not using git, you can always download or clone this repo and copying it to the `addons` folder inside your project.
 
 # License
 
