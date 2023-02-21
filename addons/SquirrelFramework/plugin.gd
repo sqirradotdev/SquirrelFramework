@@ -12,6 +12,10 @@ func _enter_tree() -> void:
 	add_autoload_singleton("StateManager", "res://addons/SquirrelFramework/scripts/core/StateManager.gd")
 	add_autoload_singleton("Debug", "res://addons/SquirrelFramework/scripts/core/Debug.gd")
 
+	if not ProjectSettings.has_setting("application/config/version"):
+		ProjectSettings.set_setting("application/config/version", "1.0")
+		ProjectSettings.save()
+
 
 func _exit_tree() -> void:
 	remove_autoload_singleton("Global")
