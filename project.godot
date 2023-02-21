@@ -51,15 +51,15 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://icon.png"
-config/framework_version="0.1"
 config/project_version="0.1"
 
 [autoload]
 
+Util="*res://addons/SquirrelFramework/scripts/core/Util.gd"
 Global="*res://addons/SquirrelFramework/scripts/core/Global.gd"
+ViewportManager="*res://addons/SquirrelFramework/scripts/core/ViewportManager.gd"
 ResourceQueue="*res://addons/SquirrelFramework/scripts/core/ResourceQueue.gd"
 StateManager="*res://addons/SquirrelFramework/scripts/core/StateManager.gd"
-Util="*res://addons/SquirrelFramework/scripts/core/Util.gd"
 Debug="*res://addons/SquirrelFramework/scripts/core/Debug.gd"
 
 [debug]
@@ -71,7 +71,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1280
 window/size/height=720
-window/size/resizable=false
+window/size/game_width=0.0
+window/size/game_height=0.0
 
 [editor_plugins]
 

@@ -29,8 +29,8 @@ func change_state(state_name: String) -> void:
 
 	yield(get_tree(), "idle_frame")
 
-	Global.main_viewport.get_child(0).queue_free()
-	Global.main_viewport.add_child(node)
+	ViewportManager.main_viewport.get_child(0).queue_free()
+	ViewportManager.main_viewport.add_child(node)
 
 	_current_state = state
 

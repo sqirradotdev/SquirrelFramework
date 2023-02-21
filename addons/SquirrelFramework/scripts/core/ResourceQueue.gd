@@ -162,7 +162,7 @@ func _thread_update_queue() -> void:
 				_loader_queue.push_back(loader)
 			_pending[dict["path"]] = loader
 			_path_queue.pop_front()
-			print("ResourceQueue: queued resource " + dict["path"])
+			print("ResourceQueue: queued " + dict["path"])
 
 	_unlock("_thread_update_queue")
 
@@ -182,7 +182,7 @@ func _thread_load_resources() -> void:
 			_loader_queue.erase(loader)
 			emit_signal("done_loading", path)
 			#call_deferred("emit_signal", "done_loading", path)
-			print("ResourceQueue: done loading resource " + path)
+			print("ResourceQueue: loaded " + path)
 
 	_unlock("_thread_load_resources")
 
