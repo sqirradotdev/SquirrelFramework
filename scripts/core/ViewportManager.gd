@@ -19,9 +19,7 @@ func _ready() -> void:
 
 	root = get_tree().root
 
-	var game_size: Vector2 = Vector2(ProjectSettings.get("display/window/size/game_width"), ProjectSettings.get("display/window/size/game_height"))
-	if game_size.x <= 0 or game_size.y <= 0:
-		game_size = root.size
+	var game_size: Vector2 = Vector2(ProjectSettings.get("display/window/size/width"), ProjectSettings.get("display/window/size/height"))
 
 	viewports = CanvasLayer.new()
 	viewports.name = "Viewports"
