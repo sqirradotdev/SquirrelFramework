@@ -1,8 +1,7 @@
 extends Node
 
-var main_viewport: Viewport
-
-var viewports: CanvasLayer
+var game_viewport: Viewport
+var game_layer: CanvasLayer
 
 var black_bg: ColorRect
 var aspect_ratio_container: AspectRatioContainer
@@ -21,20 +20,20 @@ func _ready() -> void:
 
 	var game_size: Vector2 = Vector2(ProjectSettings.get("display/window/size/width"), ProjectSettings.get("display/window/size/height"))
 
-	viewports = CanvasLayer.new()
-	viewports.name = "Viewports"
-	root.call_deferred("add_child", viewports)
+	game_layer = CanvasLayer.new()
+	game_layer.name = "GameLayer"
+	root.call_deferred("add_child", game_layer)
 
 	black_bg = ColorRect.new()
 	black_bg.name = "BlackBG"
 	black_bg.color = Color.black
-	viewports.call_deferred("add_child", black_bg)
+	game_layer.call_deferred("add_child", black_bg)
 	black_bg.set_anchors_preset(Control.PRESET_WIDE, true)
 
 	aspect_ratio_container = AspectRatioContainer.new()
 	aspect_ratio_container.name = "AspectRatioContainer"
 	aspect_ratio_container.ratio = game_size.x / game_size.y
-	viewports.call_deferred("add_child", aspect_ratio_container)
+	game_layer.call_deferred("add_child", aspect_ratio_container)
 	aspect_ratio_container.set_anchors_preset(Control.PRESET_WIDE, true)
 
 	main_vc = MainViewportContainer.new()
@@ -43,16 +42,16 @@ func _ready() -> void:
 	main_vc.viewport_size = game_size
 	aspect_ratio_container.call_deferred("add_child", main_vc)
 
-	main_viewport = Viewport.new()
-	main_viewport.name = "MainViewport"
-	main_viewport.size = game_size
-	main_viewport.set_size_override(true, game_size)
-	main_viewport.size_override_stretch = true
-	main_vc.call_deferred("add_child", main_viewport)
+	game_viewport = Viewport.new()
+	game_viewport.name = "GameViewport"
+	game_viewport.size = game_size
+	game_viewport.set_size_override(true, game_size)
+	game_viewport.size_override_stretch = true
+	main_vc.call_deferred("add_child", game_viewport)
 
 	var current_scene: Node = get_tree().current_scene
-	get_tree().set_deferred("current_scene", viewports)
+	get_tree().set_deferred("current_scene", game_layer)
 	root.call_deferred("remove_child", current_scene)
-	main_viewport.call_deferred("add_child", current_scene)
+	game_viewport.call_deferred("add_child", current_scene)
 
 	initialized = true

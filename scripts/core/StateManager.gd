@@ -29,8 +29,8 @@ func change_state(state_name: String) -> void:
 
 	yield(get_tree(), "idle_frame")
 
-	ViewportManager.main_viewport.get_child(0).queue_free()
-	ViewportManager.main_viewport.add_child(node)
+	_current_state.queue_free()
+	ViewportManager.game_viewport.add_child(node)
 
 	_current_state = state
 
