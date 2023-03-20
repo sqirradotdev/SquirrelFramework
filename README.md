@@ -2,6 +2,8 @@
 
 SquirrelFramework is a foundation for developing Godot Engine games. It's a set of tools and systems to quickstart your new game project. 🚀
 
+**IMPORTANT: This addon only supports Godot 3.5 only and does not support Godot 4!**
+
 # Features
 
 - Game state management with a special State scene type
